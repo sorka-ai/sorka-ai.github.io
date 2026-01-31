@@ -2399,6 +2399,41 @@
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
+
+    // Custom Event Tracking
+    import { logEvent } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+
+    // Track button clicks
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a.btn, button.mobile-toggle, a.nav-link, a.footer-link, a.footer-social').forEach(element => {
+        element.addEventListener('click', (e) => {
+          const label = element.innerText.trim() || element.getAttribute('aria-label') || 'icon';
+          const location = element.closest('section')?.id || element.closest('nav') ? 'nav' : element.closest('footer') ? 'footer' : 'unknown';
+          
+          logEvent(analytics, 'ui_interaction', {
+            content_type: 'button',
+            item_name: label,
+            location: location,
+            destination: element.getAttribute('href')
+          });
+        });
+      });
+
+      // Track section visibility (Time spent per section proxy)
+      const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            logEvent(analytics, 'section_view', {
+              section_name: entry.target.id
+            });
+          }
+        });
+      }, { threshold: 0.5 }); // Trigger when 50% of section is visible
+
+      document.querySelectorAll('section[id]').forEach(section => {
+        sectionObserver.observe(section);
+      });
+    });
   </script>
 </body>
 </html>

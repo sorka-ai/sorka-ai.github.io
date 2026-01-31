@@ -1,27 +1,20 @@
-# sorka.ai landing page
+# Sorka Website
 
-Static landing page for **Sorka** (sorka.ai), built for GitHub Pages.
+The main landing page for [Sorka](https://sorka.ai), built with HTML/CSS/JS.
 
-## Deploy to GitHub Pages
+## Overview
 
-1. **From this repo (sita):**  
-   In repo **Settings → Pages**, set **Source** to **Deploy from a branch**, then choose branch (e.g. `main`) and folder **`/github.io`**. Save. The site will be at `https://<username>.github.io/sita/` (or your repo name).
+This repository hosts the static website for Sorka, showcasing our distributed mobile testing and launch platform. It serves as the primary entry point for users to learn about our solution, platform architecture, and to request early access.
 
-2. **Custom domain (sorka.ai):**  
-   In the same Pages settings, set **Custom domain** to `sorka.ai` and follow GitHub’s DNS instructions (CNAME to `username.github.io` or the repo’s Pages URL).
+## Reporting Issues
 
-## Edit before publishing
+If you find any bugs, broken links, or visual issues on the website, please open an issue in this repository.
 
-- Replace `your-org/sita` in all GitHub links with your actual repo (e.g. `username/sita`).
-- Point the main download button to your releases URL:  
-  `https://github.com/your-org/sita/releases`
+1.  Go to the [Issues](https://github.com/sorka-ai/sorka-ai.github.io/issues) tab.
+2.  Click **New Issue**.
+3.  Describe the problem, including:
+    *   Device/Browser (e.g., Chrome on Mac, Safari on iPhone)
+    *   Steps to reproduce
+    *   Screenshots (if applicable)
 
-## Local preview
-
-Open `index.html` in a browser, or use a static server:
-
-```bash
-cd github.io && python3 -m http.server 8080
-```
-
-Then visit `http://localhost:8080`.
+We appreciate your feedback!
