@@ -3,51 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sorka — The Real-World Signal Layer for Mobile</title>
-  <meta name="description" content="Know your build is safe to scale—before you pay to scale it. Sorka provides mobile teams with real-world execution intelligence powered by real devices and real users.">
+  <title>Sorka — Real-World Intelligence for Mobile at Scale</title>
+  <meta name="description" content="Know your build is safe to scale—before you pay to scale it. Real devices. Real users. Real intelligence.">
   
-  <!-- Fonts -->
+  <!-- Fonts: Satoshi for headings, Inter for body -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2306b6d4'/%3E%3Cstop offset='100%25' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3Ctext x='16' y='21' text-anchor='middle' fill='white' font-family='system-ui' font-weight='700' font-size='14'%3ES%3C/text%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%2300D4AA'/%3E%3Cstop offset='100%25' stop-color='%230099FF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='%230D0D0F'/%3E%3Cpath d='M10 20.5C10 17 12.5 15 16 15C19.5 15 22 17 22 20.5' stroke='url(%23g)' stroke-width='2.5' stroke-linecap='round' fill='none'/%3E%3Ccircle cx='16' cy='11' r='3' fill='url(%23g)'/%3E%3C/svg%3E">
 
   <style>
+    @font-face {
+      font-family: 'Satoshi';
+      src: url('https://api.fontshare.com/v2/css?f[]=satoshi@700,900&display=swap');
+      font-weight: 700 900;
+      font-display: swap;
+    }
+
     :root {
-      --bg-primary: #0a0a0b;
-      --bg-secondary: #111113;
-      --bg-tertiary: #18181b;
-      --bg-card: #1a1a1d;
-      --bg-card-hover: #222225;
+      /* Refined dark palette */
+      --bg-base: #09090b;
+      --bg-subtle: #0f0f12;
+      --bg-muted: #18181b;
+      --bg-elevated: #1f1f23;
+      --bg-hover: #27272a;
       
+      /* Text hierarchy */
       --text-primary: #fafafa;
       --text-secondary: #a1a1aa;
-      --text-tertiary: #71717a;
+      --text-muted: #71717a;
+      --text-faint: #52525b;
       
-      --accent-cyan: #06b6d4;
-      --accent-violet: #8b5cf6;
-      --accent-pink: #ec4899;
-      --accent-emerald: #10b981;
-      --accent-orange: #f97316;
+      /* Accent - Teal/Cyan inspired */
+      --accent: #00D4AA;
+      --accent-bright: #00FFD0;
+      --accent-muted: rgba(0, 212, 170, 0.15);
+      --accent-glow: rgba(0, 212, 170, 0.4);
       
-      --gradient-primary: linear-gradient(135deg, var(--accent-cyan), var(--accent-violet));
-      --gradient-glow: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(139, 92, 246, 0.15));
+      /* Secondary accent */
+      --blue: #0099FF;
+      --blue-muted: rgba(0, 153, 255, 0.15);
       
-      --border-subtle: rgba(255, 255, 255, 0.06);
-      --border-light: rgba(255, 255, 255, 0.1);
+      /* Semantic */
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.15);
       
-      --radius-sm: 8px;
-      --radius-md: 12px;
-      --radius-lg: 20px;
-      --radius-xl: 28px;
+      /* Gradients */
+      --gradient-accent: linear-gradient(135deg, var(--accent) 0%, var(--blue) 100%);
+      --gradient-subtle: linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg-base) 100%);
+      --gradient-radial: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 212, 170, 0.15), transparent);
       
-      --font-sans: 'Instrument Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+      /* Typography */
+      --font-display: 'Satoshi', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'SF Mono', 'Fira Code', monospace;
       
-      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+      /* Spacing */
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 24px;
+      --space-xl: 32px;
+      --space-2xl: 48px;
+      --space-3xl: 64px;
+      --space-4xl: 96px;
+      
+      /* Radius */
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
+      --radius-full: 9999px;
+      
+      /* Transitions */
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     * {
@@ -63,66 +95,47 @@
     }
 
     body {
-      font-family: var(--font-sans);
-      background: var(--bg-primary);
+      font-family: var(--font-body);
+      background: var(--bg-base);
       color: var(--text-primary);
       line-height: 1.6;
       overflow-x: hidden;
     }
 
-    /* Selection */
     ::selection {
-      background: rgba(6, 182, 212, 0.3);
+      background: var(--accent-muted);
       color: var(--text-primary);
     }
 
     /* Scrollbar */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-    ::-webkit-scrollbar-track {
-      background: var(--bg-primary);
-    }
-    ::-webkit-scrollbar-thumb {
-      background: var(--bg-tertiary);
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--text-tertiary);
-    }
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--bg-hover); }
 
     /* ===== UTILITIES ===== */
     .container {
+      width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 var(--space-lg);
+    }
+
+    .container-narrow {
+      max-width: 800px;
     }
 
     .gradient-text {
-      background: var(--gradient-primary);
+      background: var(--gradient-accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    .text-secondary {
-      color: var(--text-secondary);
-    }
-
-    .text-tertiary {
-      color: var(--text-tertiary);
-    }
-
-    /* ===== ANIMATIONS ===== */
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    /* ===== KEYFRAMES ===== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes fadeIn {
@@ -130,29 +143,37 @@
       to { opacity: 1; }
     }
 
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    @keyframes shimmer {
+      0% { background-position: -200% 0; }
+      100% { background-position: 200% 0; }
+    }
+
     @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-10px) rotate(1deg); }
     }
 
-    @keyframes pulse-glow {
-      0%, 100% { opacity: 0.4; }
-      50% { opacity: 0.8; }
-    }
-
-    @keyframes gradient-shift {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 20px var(--accent-glow)); }
+      50% { filter: drop-shadow(0 0 40px var(--accent-glow)); }
     }
 
     @keyframes orbit {
-      from { transform: rotate(0deg) translateX(150px) rotate(0deg); }
-      to { transform: rotate(360deg) translateX(150px) rotate(-360deg); }
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    @keyframes dash {
+      to { stroke-dashoffset: 0; }
     }
 
     .animate-in {
-      animation: fadeInUp 0.8s var(--ease-out-expo) forwards;
+      animation: fadeUp 0.8s var(--ease-out) forwards;
       opacity: 0;
     }
 
@@ -168,59 +189,53 @@
       top: 0;
       left: 0;
       right: 0;
-      z-index: 100;
-      padding: 16px 0;
+      z-index: 1000;
+      padding: var(--space-md) 0;
       transition: all 0.3s ease;
     }
 
     .nav.scrolled {
-      background: rgba(10, 10, 11, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(9, 9, 11, 0.8);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
     }
 
     .nav-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: var(--space-xl);
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: var(--space-sm);
       text-decoration: none;
       color: var(--text-primary);
+      font-family: var(--font-display);
       font-weight: 700;
       font-size: 1.25rem;
       letter-spacing: -0.02em;
     }
 
-    .logo-mark {
-      width: 36px;
-      height: 36px;
-      background: var(--gradient-primary);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: white;
+    .logo-icon {
+      width: 32px;
+      height: 32px;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: var(--space-xs);
     }
 
     .nav-link {
       color: var(--text-secondary);
       text-decoration: none;
-      padding: 10px 16px;
-      font-size: 0.9rem;
+      padding: var(--space-sm) var(--space-md);
+      font-size: 0.875rem;
       font-weight: 500;
       border-radius: var(--radius-sm);
       transition: all 0.2s ease;
@@ -228,63 +243,77 @@
 
     .nav-link:hover {
       color: var(--text-primary);
-      background: var(--bg-tertiary);
+      background: var(--bg-muted);
+    }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
-      padding: 12px 24px;
-      font-size: 0.9rem;
+      gap: var(--space-sm);
+      padding: 10px 20px;
+      font-size: 0.875rem;
       font-weight: 600;
       font-family: inherit;
       border-radius: var(--radius-md);
       text-decoration: none;
       cursor: pointer;
-      transition: all 0.25s var(--ease-out-quart);
+      transition: all 0.25s var(--ease-out);
       border: none;
+      white-space: nowrap;
+    }
+
+    .btn svg {
+      width: 16px;
+      height: 16px;
     }
 
     .btn-primary {
-      background: var(--gradient-primary);
-      color: white;
-      box-shadow: 0 0 20px rgba(6, 182, 212, 0.3);
+      background: var(--text-primary);
+      color: var(--bg-base);
     }
 
     .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 30px rgba(6, 182, 212, 0.5);
+      background: var(--accent);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px var(--accent-glow);
     }
 
     .btn-secondary {
-      background: var(--bg-tertiary);
+      background: transparent;
       color: var(--text-primary);
-      border: 1px solid var(--border-light);
+      border: 1px solid var(--border);
     }
 
     .btn-secondary:hover {
-      background: var(--bg-card-hover);
-      border-color: var(--text-tertiary);
+      background: var(--bg-muted);
+      border-color: var(--border-hover);
     }
 
-    .mobile-menu-btn {
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-secondary);
+      padding: var(--space-sm) var(--space-md);
+    }
+
+    .btn-ghost:hover {
+      color: var(--text-primary);
+      background: var(--bg-muted);
+    }
+
+    .mobile-toggle {
       display: none;
-      flex-direction: column;
-      gap: 5px;
-      padding: 8px;
+      padding: var(--space-sm);
       background: none;
       border: none;
       cursor: pointer;
-    }
-
-    .mobile-menu-btn span {
-      width: 24px;
-      height: 2px;
-      background: var(--text-primary);
-      border-radius: 2px;
-      transition: all 0.3s ease;
+      color: var(--text-primary);
     }
 
     /* ===== HERO ===== */
@@ -292,97 +321,74 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      justify-content: center;
       position: relative;
-      padding: 120px 0 80px;
+      padding: 160px 0 120px;
       overflow: hidden;
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
-      overflow: hidden;
+      pointer-events: none;
     }
 
-    .hero-gradient-orb {
+    .hero-glow {
       position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.5;
-    }
-
-    .orb-1 {
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.3) 0%, transparent 70%);
-      top: -200px;
-      right: -100px;
-      animation: float 8s ease-in-out infinite;
-    }
-
-    .orb-2 {
-      width: 500px;
-      height: 500px;
-      background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, transparent 70%);
-      bottom: -150px;
-      left: -100px;
-      animation: float 10s ease-in-out infinite reverse;
-    }
-
-    .orb-3 {
-      width: 300px;
-      height: 300px;
-      background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
-      top: 40%;
+      top: -30%;
       left: 50%;
-      animation: float 6s ease-in-out infinite;
+      transform: translateX(-50%);
+      width: 140%;
+      height: 600px;
+      background: radial-gradient(ellipse at center, rgba(0, 212, 170, 0.08) 0%, transparent 60%);
     }
 
     .hero-grid {
       position: absolute;
       inset: 0;
       background-image: 
-        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-      background-size: 60px 60px;
-      mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%);
-      -webkit-mask-image: radial-gradient(ellipse 80% 50% at 50% 50%, black 40%, transparent 100%);
+        linear-gradient(var(--border) 1px, transparent 1px),
+        linear-gradient(90deg, var(--border) 1px, transparent 1px);
+      background-size: 80px 80px;
+      mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+      -webkit-mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent);
+      opacity: 0.4;
     }
 
     .hero-content {
-      text-align: center;
-      max-width: 900px;
       position: relative;
       z-index: 1;
+      text-align: center;
     }
 
-    .hero-badge {
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 16px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
-      border-radius: 100px;
-      font-size: 0.85rem;
+      gap: var(--space-sm);
+      padding: 6px 14px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-full);
+      font-size: 0.8125rem;
+      font-weight: 500;
       color: var(--text-secondary);
-      margin-bottom: 32px;
+      margin-bottom: var(--space-xl);
     }
 
-    .hero-badge-dot {
-      width: 8px;
-      height: 8px;
-      background: var(--accent-emerald);
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
       border-radius: 50%;
-      animation: pulse-glow 2s ease-in-out infinite;
+      animation: pulse 2s ease-in-out infinite;
     }
 
     .hero-title {
-      font-size: clamp(2.5rem, 7vw, 4.5rem);
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 5.5rem);
       font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      margin-bottom: 24px;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+      margin-bottom: var(--space-lg);
     }
 
     .hero-title-line {
@@ -390,156 +396,269 @@
     }
 
     .hero-subtitle {
-      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-size: clamp(1.125rem, 2vw, 1.375rem);
       color: var(--text-secondary);
-      max-width: 650px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto var(--space-2xl);
+      line-height: 1.6;
     }
 
-    .hero-cta {
+    .hero-actions {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: var(--space-md);
       flex-wrap: wrap;
     }
 
-    .hero-stats {
+    .hero-visual {
+      margin-top: 80px;
+      position: relative;
+    }
+
+    .hero-diagram {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .hero-diagram-svg {
+      width: 100%;
+      height: auto;
+    }
+
+    /* ===== LOGOS / SOCIAL PROOF ===== */
+    .logos {
+      padding: var(--space-4xl) 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .logos-label {
+      text-align: center;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-xl);
+    }
+
+    .logos-grid {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 48px;
-      margin-top: 80px;
-      padding-top: 48px;
-      border-top: 1px solid var(--border-subtle);
+      gap: var(--space-3xl);
+      flex-wrap: wrap;
+      opacity: 0.5;
     }
 
-    .hero-stat {
-      text-align: center;
+    .logos-grid svg {
+      height: 28px;
+      width: auto;
     }
 
-    .hero-stat-value {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-
-    .hero-stat-label {
-      font-size: 0.9rem;
-      color: var(--text-tertiary);
-      margin-top: 4px;
-    }
-
-    /* ===== PROBLEM SECTION ===== */
+    /* ===== SECTION COMMON ===== */
     .section {
-      padding: 120px 0;
+      padding: var(--space-4xl) 0;
       position: relative;
     }
 
     .section-header {
       text-align: center;
       max-width: 700px;
-      margin: 0 auto 64px;
+      margin: 0 auto var(--space-3xl);
     }
 
     .section-label {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      font-size: 0.85rem;
+      gap: var(--space-sm);
+      font-size: 0.8125rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent-cyan);
-      margin-bottom: 16px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: var(--space-md);
+    }
+
+    .section-label svg {
+      width: 16px;
+      height: 16px;
     }
 
     .section-title {
+      font-family: var(--font-display);
       font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 20px;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
     }
 
     .section-desc {
-      font-size: 1.1rem;
+      font-size: 1.125rem;
       color: var(--text-secondary);
       line-height: 1.7;
     }
 
+    /* ===== PROBLEM ===== */
     .problem {
-      background: var(--bg-secondary);
+      background: var(--bg-subtle);
     }
 
-    .problem-grid {
+    .problem-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: var(--space-lg);
     }
 
     .problem-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--bg-base);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 32px;
-      transition: all 0.3s ease;
+      padding: var(--space-xl);
+      transition: all 0.3s var(--ease-out);
     }
 
     .problem-card:hover {
-      border-color: var(--border-light);
+      border-color: var(--border-hover);
       transform: translateY(-4px);
     }
 
-    .problem-icon {
+    .problem-card-icon {
       width: 48px;
       height: 48px;
-      background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(236, 72, 153, 0.15));
+      background: linear-gradient(135deg, rgba(239, 68, 68, 0.1), rgba(249, 115, 22, 0.1));
+      border: 1px solid rgba(239, 68, 68, 0.2);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
-      font-size: 1.5rem;
+      margin-bottom: var(--space-lg);
+      color: #f87171;
+    }
+
+    .problem-card-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
     .problem-card h3 {
-      font-size: 1.15rem;
+      font-size: 1.125rem;
       font-weight: 600;
-      margin-bottom: 12px;
+      margin-bottom: var(--space-sm);
       letter-spacing: -0.01em;
     }
 
     .problem-card p {
       color: var(--text-secondary);
-      font-size: 0.95rem;
+      font-size: 0.9375rem;
       line-height: 1.6;
     }
 
-    .problem-quote {
+    .problem-statement {
+      max-width: 700px;
+      margin: var(--space-3xl) auto 0;
       text-align: center;
-      margin-top: 64px;
-      padding: 48px;
-      background: var(--gradient-glow);
-      border: 1px solid var(--border-subtle);
+      padding: var(--space-2xl);
+      background: linear-gradient(135deg, var(--accent-muted), var(--blue-muted));
+      border: 1px solid var(--border);
       border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
     }
 
-    .problem-quote blockquote {
+    .problem-statement::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gradient-accent);
+    }
+
+    .problem-statement p {
+      font-family: var(--font-display);
       font-size: 1.5rem;
       font-weight: 600;
-      letter-spacing: -0.01em;
-      max-width: 600px;
-      margin: 0 auto;
+      letter-spacing: -0.02em;
+      line-height: 1.4;
     }
 
-    /* ===== SOLUTION SECTION ===== */
+    /* ===== SOLUTION ===== */
     .solution-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: var(--space-4xl);
       align-items: center;
+    }
+
+    .solution-text h2 {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: var(--space-lg);
+    }
+
+    .solution-text .desc {
+      font-size: 1.125rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: var(--space-xl);
+    }
+
+    .solution-features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .solution-feature {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-md);
+      padding: var(--space-lg);
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .solution-feature:hover {
+      border-color: var(--accent);
+      background: var(--accent-muted);
+    }
+
+    .solution-feature-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent-muted);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .solution-feature-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .solution-feature h4 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .solution-feature p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
     }
 
     .solution-visual {
@@ -547,7 +666,7 @@
       height: 500px;
     }
 
-    .solution-diagram {
+    .solution-visual-inner {
       position: absolute;
       inset: 0;
       display: flex;
@@ -556,295 +675,302 @@
     }
 
     .solution-center {
-      width: 140px;
-      height: 140px;
-      background: var(--gradient-primary);
+      width: 120px;
+      height: 120px;
+      background: var(--gradient-accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: white;
-      box-shadow: 0 0 60px rgba(6, 182, 212, 0.4);
       position: relative;
-      z-index: 2;
+      z-index: 10;
+      box-shadow: 0 0 60px var(--accent-glow);
+      animation: glow 3s ease-in-out infinite;
+    }
+
+    .solution-center svg {
+      width: 48px;
+      height: 48px;
+      color: var(--bg-base);
     }
 
     .solution-orbit {
       position: absolute;
-      width: 350px;
-      height: 350px;
-      border: 1px dashed var(--border-light);
+      border: 1px dashed var(--border);
       border-radius: 50%;
+    }
+
+    .solution-orbit-1 {
+      width: 280px;
+      height: 280px;
       animation: orbit 30s linear infinite;
+    }
+
+    .solution-orbit-2 {
+      width: 400px;
+      height: 400px;
+      animation: orbit 45s linear infinite reverse;
     }
 
     .solution-node {
       position: absolute;
-      width: 70px;
-      height: 70px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
+      width: 56px;
+      height: 56px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    }
-
-    .solution-node:nth-child(1) { top: 0; left: 50%; transform: translateX(-50%); animation: float 4s ease-in-out infinite; }
-    .solution-node:nth-child(2) { top: 50%; right: 0; transform: translateY(-50%); animation: float 5s ease-in-out infinite 1s; }
-    .solution-node:nth-child(3) { bottom: 0; left: 50%; transform: translateX(-50%); animation: float 4.5s ease-in-out infinite 0.5s; }
-    .solution-node:nth-child(4) { top: 50%; left: 0; transform: translateY(-50%); animation: float 5.5s ease-in-out infinite 1.5s; }
-
-    .solution-text h2 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 24px;
-    }
-
-    .solution-text .desc {
-      font-size: 1.1rem;
       color: var(--text-secondary);
-      line-height: 1.7;
-      margin-bottom: 32px;
+      animation: float 4s ease-in-out infinite;
     }
 
-    .solution-points {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    .solution-node svg {
+      width: 24px;
+      height: 24px;
     }
 
-    .solution-point {
-      display: flex;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      transition: all 0.3s ease;
-    }
-
-    .solution-point:hover {
-      border-color: var(--accent-cyan);
-      background: rgba(6, 182, 212, 0.05);
-    }
-
-    .solution-point-icon {
-      width: 40px;
-      height: 40px;
-      background: var(--gradient-glow);
-      border-radius: var(--radius-sm);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: 1.1rem;
-    }
-
-    .solution-point h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
-    .solution-point p {
-      font-size: 0.9rem;
-      color: var(--text-secondary);
-    }
+    .solution-node-1 { top: 10%; left: 50%; transform: translateX(-50%); animation-delay: 0s; }
+    .solution-node-2 { top: 30%; right: 5%; animation-delay: 0.5s; }
+    .solution-node-3 { bottom: 30%; right: 5%; animation-delay: 1s; }
+    .solution-node-4 { bottom: 10%; left: 50%; transform: translateX(-50%); animation-delay: 1.5s; }
+    .solution-node-5 { bottom: 30%; left: 5%; animation-delay: 2s; }
+    .solution-node-6 { top: 30%; left: 5%; animation-delay: 2.5s; }
 
     /* ===== HOW IT WORKS ===== */
-    .how-it-works {
-      background: var(--bg-secondary);
+    .how {
+      background: var(--bg-subtle);
     }
 
-    .steps {
+    .how-steps {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+      gap: var(--space-lg);
       position: relative;
     }
 
-    .steps::before {
+    .how-steps::before {
       content: '';
       position: absolute;
-      top: 60px;
-      left: 15%;
-      right: 15%;
+      top: 48px;
+      left: calc(16.67% + 24px);
+      right: calc(16.67% + 24px);
       height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-violet), transparent);
+      background: linear-gradient(90deg, var(--accent), var(--blue));
       opacity: 0.3;
     }
 
-    .step {
+    .how-step {
       text-align: center;
       position: relative;
     }
 
-    .step-number {
-      width: 60px;
-      height: 60px;
-      background: var(--bg-card);
-      border: 2px solid var(--accent-cyan);
+    .how-step-number {
+      width: 56px;
+      height: 56px;
+      background: var(--bg-base);
+      border: 2px solid var(--accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin: 0 auto var(--space-lg);
+      font-family: var(--font-display);
       font-size: 1.25rem;
       font-weight: 700;
-      margin: 0 auto 24px;
+      color: var(--accent);
       position: relative;
       z-index: 1;
-      transition: all 0.3s ease;
+      transition: all 0.3s var(--ease-out);
     }
 
-    .step:hover .step-number {
-      background: var(--gradient-primary);
-      border-color: transparent;
+    .how-step:hover .how-step-number {
+      background: var(--accent);
+      color: var(--bg-base);
       transform: scale(1.1);
+      box-shadow: 0 0 30px var(--accent-glow);
     }
 
-    .step h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-
-    .step p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .step-icon {
-      font-size: 2rem;
-      margin-bottom: 16px;
-    }
-
-    /* ===== PLATFORM LAYERS ===== */
-    .layers-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .layer-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+    .how-step-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--bg-base);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 32px;
-      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-md);
+      color: var(--text-secondary);
+      transition: all 0.3s var(--ease-out);
+    }
+
+    .how-step:hover .how-step-icon {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-muted);
+    }
+
+    .how-step-icon svg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .how-step h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: var(--space-sm);
+    }
+
+    .how-step p {
+      color: var(--text-secondary);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    /* ===== PLATFORM ===== */
+    .platform-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-lg);
+    }
+
+    .platform-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      transition: all 0.3s var(--ease-out);
       position: relative;
       overflow: hidden;
     }
 
-    .layer-card::before {
+    .platform-card::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
-      right: 0;
+      width: 100%;
       height: 3px;
-      background: var(--gradient-primary);
+      background: var(--gradient-accent);
       opacity: 0;
       transition: opacity 0.3s ease;
     }
 
-    .layer-card:hover {
-      border-color: var(--border-light);
+    .platform-card:hover {
+      border-color: var(--border-hover);
       transform: translateY(-4px);
     }
 
-    .layer-card:hover::before {
+    .platform-card:hover::before {
       opacity: 1;
     }
 
-    .layer-number {
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      color: var(--accent-cyan);
-      margin-bottom: 12px;
+    .platform-card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      margin-bottom: var(--space-md);
     }
 
-    .layer-card h3 {
-      font-size: 1.25rem;
+    .platform-card-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-muted);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .platform-card-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .platform-card h3 {
+      font-size: 1.0625rem;
       font-weight: 600;
-      margin-bottom: 12px;
+      letter-spacing: -0.01em;
     }
 
-    .layer-card p {
+    .platform-card p {
       color: var(--text-secondary);
-      font-size: 0.95rem;
+      font-size: 0.9375rem;
       line-height: 1.6;
-      margin-bottom: 20px;
+      margin-bottom: var(--space-md);
     }
 
-    .layer-tags {
+    .platform-tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: var(--space-sm);
     }
 
-    .layer-tag {
-      padding: 6px 12px;
-      background: var(--bg-tertiary);
-      border-radius: 100px;
-      font-size: 0.8rem;
-      color: var(--text-tertiary);
+    .platform-tag {
+      padding: 4px 10px;
+      background: var(--bg-muted);
+      border-radius: var(--radius-full);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 500;
     }
 
-    /* ===== DIFFERENTIATORS ===== */
+    /* ===== DIFFERENCE ===== */
     .diff {
-      background: var(--bg-secondary);
+      background: var(--bg-subtle);
     }
 
     .diff-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
+      gap: var(--space-lg);
     }
 
     .diff-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
+      background: var(--bg-base);
+      border: 1px solid var(--border);
       border-radius: var(--radius-lg);
-      padding: 28px;
+      padding: var(--space-xl);
       text-align: center;
-      transition: all 0.3s ease;
+      transition: all 0.3s var(--ease-out);
     }
 
     .diff-card:hover {
-      border-color: var(--accent-violet);
+      border-color: var(--accent);
       transform: translateY(-4px);
     }
 
-    .diff-icon {
+    .diff-card-icon {
       width: 56px;
       height: 56px;
-      background: var(--gradient-glow);
+      background: var(--gradient-accent);
       border-radius: var(--radius-md);
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 16px;
-      font-size: 1.5rem;
+      margin: 0 auto var(--space-md);
+      color: var(--bg-base);
+    }
+
+    .diff-card-icon svg {
+      width: 28px;
+      height: 28px;
     }
 
     .diff-card h3 {
       font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 8px;
+      margin-bottom: var(--space-sm);
     }
 
     .diff-card p {
       color: var(--text-secondary);
-      font-size: 0.85rem;
+      font-size: 0.875rem;
       line-height: 1.5;
     }
 
@@ -852,7 +978,7 @@
     .flywheel-content {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
+      gap: var(--space-4xl);
       align-items: center;
     }
 
@@ -864,97 +990,108 @@
       justify-content: center;
     }
 
-    .flywheel-ring {
-      position: absolute;
-      border: 2px solid var(--border-light);
-      border-radius: 50%;
-      animation: orbit 20s linear infinite;
-    }
-
-    .flywheel-ring:nth-child(1) { width: 150px; height: 150px; }
-    .flywheel-ring:nth-child(2) { width: 250px; height: 250px; animation-duration: 25s; animation-direction: reverse; }
-    .flywheel-ring:nth-child(3) { width: 350px; height: 350px; animation-duration: 30s; }
-
     .flywheel-center {
       width: 100px;
       height: 100px;
-      background: var(--gradient-primary);
+      background: var(--gradient-accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 0 50px rgba(6, 182, 212, 0.4);
-      z-index: 2;
+      z-index: 10;
+      box-shadow: 0 0 50px var(--accent-glow);
     }
 
-    .flywheel-item {
+    .flywheel-center svg {
+      width: 40px;
+      height: 40px;
+      color: var(--bg-base);
+    }
+
+    .flywheel-ring {
       position: absolute;
-      padding: 12px 20px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-light);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+    }
+
+    .flywheel-ring-1 { width: 180px; height: 180px; animation: orbit 15s linear infinite; }
+    .flywheel-ring-2 { width: 280px; height: 280px; animation: orbit 25s linear infinite reverse; }
+    .flywheel-ring-3 { width: 380px; height: 380px; animation: orbit 35s linear infinite; }
+
+    .flywheel-label {
+      position: absolute;
+      padding: 8px 16px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      font-size: 0.9rem;
+      font-size: 0.875rem;
       font-weight: 500;
       white-space: nowrap;
     }
 
-    .flywheel-item:nth-child(4) { top: 10%; left: 50%; transform: translateX(-50%); }
-    .flywheel-item:nth-child(5) { top: 50%; right: 0; transform: translateY(-50%); }
-    .flywheel-item:nth-child(6) { bottom: 10%; left: 50%; transform: translateX(-50%); }
-    .flywheel-item:nth-child(7) { top: 50%; left: 0; transform: translateY(-50%); }
+    .flywheel-label-1 { top: 5%; left: 50%; transform: translateX(-50%); }
+    .flywheel-label-2 { top: 50%; right: 0; transform: translateY(-50%); }
+    .flywheel-label-3 { bottom: 5%; left: 50%; transform: translateX(-50%); }
+    .flywheel-label-4 { top: 50%; left: 0; transform: translateY(-50%); }
 
     .flywheel-text h2 {
+      font-family: var(--font-display);
       font-size: 2.5rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 24px;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: var(--space-lg);
     }
 
     .flywheel-text .desc {
-      font-size: 1.1rem;
+      font-size: 1.125rem;
       color: var(--text-secondary);
       line-height: 1.7;
-      margin-bottom: 32px;
+      margin-bottom: var(--space-xl);
     }
 
-    .flywheel-benefits {
+    .flywheel-list {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: var(--space-sm);
     }
 
-    .flywheel-benefit {
+    .flywheel-item {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: var(--space-md);
       font-size: 1rem;
     }
 
-    .flywheel-benefit-icon {
+    .flywheel-item-check {
       width: 24px;
       height: 24px;
-      background: var(--accent-emerald);
+      background: var(--accent);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.75rem;
-      color: white;
+      flex-shrink: 0;
     }
 
-    /* ===== CTA SECTION ===== */
+    .flywheel-item-check svg {
+      width: 14px;
+      height: 14px;
+      color: var(--bg-base);
+    }
+
+    /* ===== CTA ===== */
     .cta {
-      background: var(--bg-secondary);
-      text-align: center;
+      background: var(--bg-subtle);
     }
 
     .cta-box {
       max-width: 800px;
       margin: 0 auto;
-      padding: 80px;
-      background: var(--gradient-glow);
-      border: 1px solid var(--border-light);
+      text-align: center;
+      padding: var(--space-4xl);
+      background: linear-gradient(135deg, var(--accent-muted), var(--blue-muted));
+      border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       position: relative;
       overflow: hidden;
@@ -963,12 +1100,11 @@
     .cta-box::before {
       content: '';
       position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
-      animation: float 10s ease-in-out infinite;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--gradient-accent);
     }
 
     .cta-content {
@@ -977,65 +1113,70 @@
     }
 
     .cta h2 {
+      font-family: var(--font-display);
       font-size: 2.5rem;
       font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
+      letter-spacing: -0.03em;
+      margin-bottom: var(--space-md);
     }
 
     .cta p {
-      font-size: 1.15rem;
+      font-size: 1.125rem;
       color: var(--text-secondary);
-      margin-bottom: 32px;
+      margin-bottom: var(--space-xl);
     }
 
     .cta-buttons {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 16px;
+      gap: var(--space-md);
       flex-wrap: wrap;
     }
 
     /* ===== FOOTER ===== */
     .footer {
-      padding: 80px 0 40px;
-      border-top: 1px solid var(--border-subtle);
+      padding: var(--space-4xl) 0 var(--space-xl);
+      border-top: 1px solid var(--border);
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 48px;
-      margin-bottom: 48px;
+      gap: var(--space-3xl);
+      margin-bottom: var(--space-3xl);
+    }
+
+    .footer-brand {
+      max-width: 280px;
     }
 
     .footer-brand p {
       color: var(--text-secondary);
-      font-size: 0.95rem;
-      margin-top: 16px;
+      font-size: 0.9375rem;
+      margin-top: var(--space-md);
       line-height: 1.6;
     }
 
     .footer-column h4 {
-      font-size: 0.85rem;
+      font-size: 0.8125rem;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-tertiary);
-      margin-bottom: 20px;
+      letter-spacing: 0.08em;
+      color: var(--text-muted);
+      margin-bottom: var(--space-lg);
     }
 
     .footer-links {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: var(--space-sm);
     }
 
     .footer-link {
       color: var(--text-secondary);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.9375rem;
       transition: color 0.2s ease;
     }
 
@@ -1047,36 +1188,41 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding-top: 32px;
-      border-top: 1px solid var(--border-subtle);
+      padding-top: var(--space-xl);
+      border-top: 1px solid var(--border);
     }
 
     .footer-copy {
-      color: var(--text-tertiary);
-      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-size: 0.875rem;
     }
 
     .footer-socials {
       display: flex;
-      gap: 16px;
+      gap: var(--space-sm);
     }
 
     .footer-social {
       width: 40px;
       height: 40px;
-      background: var(--bg-tertiary);
+      background: var(--bg-muted);
       border-radius: var(--radius-sm);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--text-secondary);
+      color: var(--text-muted);
       text-decoration: none;
       transition: all 0.2s ease;
     }
 
     .footer-social:hover {
-      background: var(--bg-card-hover);
+      background: var(--bg-elevated);
       color: var(--text-primary);
+    }
+
+    .footer-social svg {
+      width: 18px;
+      height: 18px;
     }
 
     /* ===== RESPONSIVE ===== */
@@ -1084,7 +1230,7 @@
       .solution-content,
       .flywheel-content {
         grid-template-columns: 1fr;
-        gap: 48px;
+        gap: var(--space-3xl);
       }
 
       .solution-visual,
@@ -1093,8 +1239,8 @@
         height: 350px;
       }
 
-      .layers-grid {
-        grid-template-columns: 1fr;
+      .platform-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .diff-grid {
@@ -1103,63 +1249,64 @@
 
       .footer-grid {
         grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
       }
     }
 
     @media (max-width: 768px) {
-      .nav-links {
+      .nav-links, .nav-cta .btn-secondary {
         display: none;
       }
 
-      .mobile-menu-btn {
+      .mobile-toggle {
         display: flex;
       }
 
-      .hero-stats {
-        flex-direction: column;
-        gap: 24px;
+      .hero {
+        padding: 140px 0 80px;
       }
 
-      .problem-grid,
-      .steps {
+      .problem-cards,
+      .how-steps {
         grid-template-columns: 1fr;
       }
 
-      .steps::before {
+      .how-steps::before {
         display: none;
       }
 
+      .platform-grid,
       .diff-grid {
         grid-template-columns: 1fr;
       }
 
       .cta-box {
-        padding: 48px 24px;
+        padding: var(--space-2xl);
       }
 
       .footer-grid {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: var(--space-xl);
       }
 
       .footer-bottom {
         flex-direction: column;
-        gap: 16px;
+        gap: var(--space-md);
         text-align: center;
       }
     }
 
     @media (max-width: 480px) {
       .container {
-        padding: 0 16px;
+        padding: 0 var(--space-md);
       }
 
-      .hero-cta {
+      .hero-actions {
         flex-direction: column;
         width: 100%;
       }
 
-      .hero-cta .btn {
+      .hero-actions .btn {
         width: 100%;
       }
 
@@ -1169,15 +1316,23 @@
       }
 
       .solution-center {
-        width: 100px;
-        height: 100px;
-        font-size: 1rem;
+        width: 80px;
+        height: 80px;
+      }
+
+      .solution-center svg {
+        width: 32px;
+        height: 32px;
       }
 
       .solution-node {
-        width: 50px;
-        height: 50px;
-        font-size: 1.2rem;
+        width: 44px;
+        height: 44px;
+      }
+
+      .solution-node svg {
+        width: 20px;
+        height: 20px;
       }
     }
   </style>
@@ -1188,147 +1343,249 @@
     <div class="container">
       <div class="nav-inner">
         <a href="#" class="logo">
-          <div class="logo-mark">S</div>
+          <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+            <rect width="32" height="32" rx="8" fill="#0D0D0F"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#00D4AA"/>
+                <stop offset="100%" stop-color="#0099FF"/>
+              </linearGradient>
+            </defs>
+            <path d="M10 20.5C10 17 12.5 15 16 15C19.5 15 22 17 22 20.5" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="16" cy="11" r="3" fill="url(#logo-grad)"/>
+          </svg>
           Sorka
         </a>
         <div class="nav-links">
           <a href="#problem" class="nav-link">Problem</a>
           <a href="#solution" class="nav-link">Solution</a>
-          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#how" class="nav-link">How It Works</a>
           <a href="#platform" class="nav-link">Platform</a>
           <a href="https://sorka-ai.github.io/wikis/" class="nav-link" target="_blank">Docs</a>
-          <a href="#contact" class="btn btn-primary">Get Started</a>
         </div>
-        <button class="mobile-menu-btn" aria-label="Menu">
-          <span></span>
-          <span></span>
-          <span></span>
+        <div class="nav-cta">
+          <a href="https://sorka-ai.github.io/wikis/" class="btn btn-secondary" target="_blank">Documentation</a>
+          <a href="#cta" class="btn btn-primary">Get Early Access</a>
+        </div>
+        <button class="mobile-toggle" aria-label="Menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-bg">
-      <div class="hero-gradient-orb orb-1"></div>
-      <div class="hero-gradient-orb orb-2"></div>
-      <div class="hero-gradient-orb orb-3"></div>
+      <div class="hero-glow"></div>
       <div class="hero-grid"></div>
     </div>
     <div class="container">
       <div class="hero-content">
-        <div class="hero-badge animate-in">
-          <span class="hero-badge-dot"></span>
-          Now in Private Beta
+        <div class="hero-eyebrow animate-in">
+          <span class="hero-eyebrow-dot"></span>
+          Now accepting early access requests
         </div>
         <h1 class="hero-title animate-in delay-1">
           <span class="hero-title-line">Know your build is</span>
-          <span class="hero-title-line gradient-text">safe to scale</span>
+          <span class="hero-title-line"><span class="gradient-text">safe to scale</span></span>
         </h1>
         <p class="hero-subtitle animate-in delay-2">
-          The real-world signal layer for mobile. Test on real devices, with real users, 
-          across a neutral execution network. Launch with confidence.
+          The real-world signal layer for mobile. Run on real devices, with real users, 
+          across a neutral execution network. Get intelligence that tells you exactly 
+          where to launch—and where not to.
         </p>
-        <div class="hero-cta animate-in delay-3">
-          <a href="#contact" class="btn btn-primary">Request Early Access</a>
-          <a href="https://sorka-ai.github.io/wikis/" class="btn btn-secondary" target="_blank">Read Documentation</a>
-        </div>
-        <div class="hero-stats animate-in delay-4">
-          <div class="hero-stat">
-            <div class="hero-stat-value gradient-text">10x</div>
-            <div class="hero-stat-label">Faster Signal</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value gradient-text">80%</div>
-            <div class="hero-stat-label">Cost Reduction</div>
-          </div>
-          <div class="hero-stat">
-            <div class="hero-stat-value gradient-text">Real</div>
-            <div class="hero-stat-label">World Data</div>
-          </div>
+        <div class="hero-actions animate-in delay-3">
+          <a href="#cta" class="btn btn-primary">
+            Request Early Access
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="https://sorka-ai.github.io/wikis/" class="btn btn-secondary" target="_blank">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+            Read Documentation
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Problem Section -->
+  <!-- Problem -->
   <section class="section problem" id="problem">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">The Problem</div>
+        <div class="section-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <line x1="12" y1="8" x2="12" y2="12"/>
+            <line x1="12" y1="16" x2="12.01" y2="16"/>
+          </svg>
+          The Problem
+        </div>
         <h2 class="section-title">Mobile teams ship blind</h2>
         <p class="section-desc">
-          Testing happens in labs that don't reflect reality. User acquisition spend becomes the actual test. 
-          Bad builds burn millions.
+          Testing happens in labs that don't reflect reality. User acquisition spend 
+          becomes the actual test. Bad builds burn millions.
         </p>
       </div>
-      <div class="problem-grid">
+      <div class="problem-cards">
         <div class="problem-card">
-          <div class="problem-icon">🧪</div>
+          <div class="problem-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9.5 2A2.5 2.5 0 0 1 12 4.5v15a2.5 2.5 0 0 1-4.96.44 2.5 2.5 0 0 1-2.96-3.08 3 3 0 0 1-.34-5.58 2.5 2.5 0 0 1 1.32-4.24 2.5 2.5 0 0 1 1.98-3A2.5 2.5 0 0 1 9.5 2Z"/>
+              <path d="M14.5 2A2.5 2.5 0 0 0 12 4.5v15a2.5 2.5 0 0 0 4.96.44 2.5 2.5 0 0 0 2.96-3.08 3 3 0 0 0 .34-5.58 2.5 2.5 0 0 0-1.32-4.24 2.5 2.5 0 0 0-1.98-3A2.5 2.5 0 0 0 14.5 2Z"/>
+            </svg>
+          </div>
           <h3>Lab Limitations</h3>
           <p>Device farms provide functional verification but lack real-world network variances, background processes, and human unpredictability.</p>
         </div>
         <div class="problem-card">
-          <div class="problem-icon">💸</div>
+          <div class="problem-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="12" y1="1" x2="12" y2="23"/>
+              <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+            </svg>
+          </div>
           <h3>Expensive Discovery</h3>
-          <p>Performance anomalies and retention issues are discovered after launch, making UA budgets an expensive secondary testing expense.</p>
+          <p>Performance anomalies and retention issues surface after launch, making UA budgets an expensive secondary testing expense.</p>
         </div>
         <div class="problem-card">
-          <div class="problem-icon">🎯</div>
-          <h3>The Gap</h3>
-          <p>Teams can test if an app works—but not if it's safe to scale. There's no signal layer between development and distribution.</p>
+          <div class="problem-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M16 16s-1.5-2-4-2-4 2-4 2"/>
+              <line x1="9" y1="9" x2="9.01" y2="9"/>
+              <line x1="15" y1="9" x2="15.01" y2="9"/>
+            </svg>
+          </div>
+          <h3>The Scalability Gap</h3>
+          <p>Teams can test if an app works—but have no way to know if it's actually safe to scale before committing UA spend.</p>
         </div>
       </div>
-      <div class="problem-quote">
-        <blockquote>
-          "Teams can test if an app <span class="gradient-text">works</span>—but not if it's <span class="gradient-text">safe to scale</span>."
-        </blockquote>
+      <div class="problem-statement">
+        <p>Teams can test if an app <span class="gradient-text">works</span>—but not if it's <span class="gradient-text">safe to scale</span>.</p>
       </div>
     </div>
   </section>
 
-  <!-- Solution Section -->
+  <!-- Solution -->
   <section class="section solution" id="solution">
     <div class="container">
       <div class="solution-content">
-        <div class="solution-visual">
-          <div class="solution-diagram">
-            <div class="solution-center">Sorka</div>
-            <div class="solution-node">📱</div>
-            <div class="solution-node">👤</div>
-            <div class="solution-node">☁️</div>
-            <div class="solution-node">📊</div>
-          </div>
-        </div>
         <div class="solution-text">
-          <div class="section-label">The Solution</div>
-          <h2>Distributed Intelligence for Mobile Scale</h2>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+            </svg>
+            The Solution
+          </div>
+          <h2>Distributed intelligence for mobile scale</h2>
           <p class="desc">
-            Sorka is a neutral execution layer that runs your apps on real devices owned by real users. 
-            We unify automation, human interaction, and performance data into actionable launch intelligence.
+            Sorka is a neutral execution layer that runs your apps on real devices 
+            owned by real users. We unify automation, human interaction, and performance 
+            data into actionable launch intelligence.
           </p>
-          <div class="solution-points">
-            <div class="solution-point">
-              <div class="solution-point-icon">🌐</div>
+          <div class="solution-features">
+            <div class="solution-feature">
+              <div class="solution-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                </svg>
+              </div>
               <div>
                 <h4>Real-World Execution</h4>
                 <p>Run on actual OEM devices, real networks, real environments</p>
               </div>
             </div>
-            <div class="solution-point">
-              <div class="solution-point-icon">🔀</div>
+            <div class="solution-feature">
+              <div class="solution-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polyline points="16 3 21 3 21 8"/>
+                  <line x1="4" y1="20" x2="21" y2="3"/>
+                  <polyline points="21 16 21 21 16 21"/>
+                  <line x1="15" y1="15" x2="21" y2="21"/>
+                  <line x1="4" y1="4" x2="9" y2="9"/>
+                </svg>
+              </div>
               <div>
                 <h4>Intelligent Mediation</h4>
                 <p>Route tasks across distributed devices, cloud providers, and human testers</p>
               </div>
             </div>
-            <div class="solution-point">
-              <div class="solution-point-icon">📈</div>
+            <div class="solution-feature">
+              <div class="solution-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+                  <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                </svg>
+              </div>
               <div>
                 <h4>Unified Intelligence</h4>
                 <p>All execution becomes long-lived data that informs launch decisions</p>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="solution-visual">
+          <div class="solution-visual-inner">
+            <div class="solution-orbit solution-orbit-1"></div>
+            <div class="solution-orbit solution-orbit-2"></div>
+            <div class="solution-center">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <div class="solution-node solution-node-1">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                <line x1="12" y1="18" x2="12.01" y2="18"/>
+              </svg>
+            </div>
+            <div class="solution-node solution-node-2">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="solution-node solution-node-3">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <div class="solution-node solution-node-4">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <div class="solution-node solution-node-5">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <div class="solution-node solution-node-6">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
             </div>
           </div>
         </div>
@@ -1337,31 +1594,56 @@
   </section>
 
   <!-- How It Works -->
-  <section class="section how-it-works" id="how-it-works">
+  <section class="section how" id="how">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">How It Works</div>
+        <div class="section-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+          How It Works
+        </div>
         <h2 class="section-title">From build to launch intelligence</h2>
         <p class="section-desc">
           A streamlined flow that turns every execution into actionable signal
         </p>
       </div>
-      <div class="steps">
-        <div class="step">
-          <div class="step-number">1</div>
-          <div class="step-icon">📤</div>
+      <div class="how-steps">
+        <div class="how-step">
+          <div class="how-step-number">1</div>
+          <div class="how-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+              <polyline points="17 8 12 3 7 8"/>
+              <line x1="12" y1="3" x2="12" y2="15"/>
+            </svg>
+          </div>
           <h3>Submit Your Build</h3>
           <p>Upload your APK with tests or guided flows. Define the signal you need—testing, validation, or launch readiness.</p>
         </div>
-        <div class="step">
-          <div class="step-number">2</div>
-          <div class="step-icon">⚡</div>
+        <div class="how-step">
+          <div class="how-step-number">2</div>
+          <div class="how-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="16 3 21 3 21 8"/>
+              <line x1="4" y1="20" x2="21" y2="3"/>
+              <polyline points="21 16 21 21 16 21"/>
+              <line x1="15" y1="15" x2="21" y2="21"/>
+              <line x1="4" y1="4" x2="9" y2="9"/>
+            </svg>
+          </div>
           <h3>Intelligent Routing</h3>
           <p>Our mediation layer routes tasks across distributed devices, cloud providers, and human pools—optimizing for cost, speed, and diversity.</p>
         </div>
-        <div class="step">
-          <div class="step-number">3</div>
-          <div class="step-icon">🎯</div>
+        <div class="how-step">
+          <div class="how-step-number">3</div>
+          <div class="how-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+              <polyline points="22 4 12 14.01 9 11.01"/>
+            </svg>
+          </div>
           <h3>Get Launch Intelligence</h3>
           <p>Receive build readiness scores, OEM risk profiles, and geo performance signals. Know exactly where to scale—and where not to.</p>
         </div>
@@ -1369,109 +1651,199 @@
     </div>
   </section>
 
-  <!-- Platform Layers -->
+  <!-- Platform -->
   <section class="section platform" id="platform">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">Platform Architecture</div>
+        <div class="section-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+          Platform
+        </div>
         <h2 class="section-title">Five tightly connected layers</h2>
         <p class="section-desc">
           A complete operating system for mobile quality, launch, and distribution
         </p>
       </div>
-      <div class="layers-grid">
-        <div class="layer-card">
-          <div class="layer-number">LAYER 01</div>
-          <h3>Execution & Data Ingestion</h3>
-          <p>Generate high-fidelity, real-world mobile signals through distributed execution on user-owned devices and centralized providers.</p>
-          <div class="layer-tags">
-            <span class="layer-tag">DeviceMesh</span>
-            <span class="layer-tag">Appium</span>
-            <span class="layer-tag">Real Networks</span>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <div class="platform-card-header">
+            <div class="platform-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"/>
+                <rect x="9" y="9" width="6" height="6"/>
+                <line x1="9" y1="1" x2="9" y2="4"/>
+                <line x1="15" y1="1" x2="15" y2="4"/>
+                <line x1="9" y1="20" x2="9" y2="23"/>
+                <line x1="15" y1="20" x2="15" y2="23"/>
+                <line x1="20" y1="9" x2="23" y2="9"/>
+                <line x1="20" y1="14" x2="23" y2="14"/>
+                <line x1="1" y1="9" x2="4" y2="9"/>
+                <line x1="1" y1="14" x2="4" y2="14"/>
+              </svg>
+            </div>
+            <h3>Execution Engine</h3>
+          </div>
+          <p>High-fidelity, real-world mobile signals through distributed execution on user-owned devices and cloud providers.</p>
+          <div class="platform-tags">
+            <span class="platform-tag">DeviceMesh</span>
+            <span class="platform-tag">Appium</span>
+            <span class="platform-tag">Real Networks</span>
           </div>
         </div>
-        <div class="layer-card">
-          <div class="layer-number">LAYER 02</div>
-          <h3>Supply & Participation Network</h3>
-          <p>Scalable execution, trials, and installs using real people and idle devices. Human-in-the-loop testing meets Launchpad distribution.</p>
-          <div class="layer-tags">
-            <span class="layer-tag">Credibility Scores</span>
-            <span class="layer-tag">Paid Trials</span>
-            <span class="layer-tag">Direct Payouts</span>
+        <div class="platform-card">
+          <div class="platform-card-header">
+            <div class="platform-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <h3>Participation Network</h3>
+          </div>
+          <p>Scalable execution and paid trials using real people and idle devices. Human-in-the-loop testing meets verified distribution.</p>
+          <div class="platform-tags">
+            <span class="platform-tag">Credibility Scores</span>
+            <span class="platform-tag">Paid Trials</span>
           </div>
         </div>
-        <div class="layer-card">
-          <div class="layer-number">LAYER 03</div>
-          <h3>Mediation & Routing</h3>
+        <div class="platform-card">
+          <div class="platform-card-header">
+            <div class="platform-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="16 3 21 3 21 8"/>
+                <line x1="4" y1="20" x2="21" y2="3"/>
+                <polyline points="21 16 21 21 16 21"/>
+                <line x1="15" y1="15" x2="21" y2="21"/>
+                <line x1="4" y1="4" x2="9" y2="9"/>
+              </svg>
+            </div>
+            <h3>Mediation & Routing</h3>
+          </div>
           <p>Intelligent routing that decides where and how each task executes. Waterfall and real-time bidding across all providers.</p>
-          <div class="layer-tags">
-            <span class="layer-tag">RTB</span>
-            <span class="layer-tag">Waterfall</span>
-            <span class="layer-tag">Cost Optimization</span>
+          <div class="platform-tags">
+            <span class="platform-tag">RTB</span>
+            <span class="platform-tag">Waterfall</span>
+            <span class="platform-tag">Cost Optimization</span>
           </div>
         </div>
-        <div class="layer-card">
-          <div class="layer-number">LAYER 04</div>
-          <h3>Unified Data Platform</h3>
+        <div class="platform-card">
+          <div class="platform-card-header">
+            <div class="platform-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+              </svg>
+            </div>
+            <h3>Unified Data</h3>
+          </div>
           <p>All execution normalized into a single, long-lived schema. Build-over-build comparisons across every device and provider.</p>
-          <div class="layer-tags">
-            <span class="layer-tag">Performance</span>
-            <span class="layer-tag">Reliability</span>
-            <span class="layer-tag">UX Signals</span>
+          <div class="platform-tags">
+            <span class="platform-tag">Performance</span>
+            <span class="platform-tag">Reliability</span>
+            <span class="platform-tag">UX Signals</span>
           </div>
         </div>
-        <div class="layer-card">
-          <div class="layer-number">LAYER 05</div>
-          <h3>Intelligence & Dashboards</h3>
+        <div class="platform-card">
+          <div class="platform-card-header">
+            <div class="platform-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"/>
+                <line x1="12" y1="20" x2="12" y2="4"/>
+                <line x1="6" y1="20" x2="6" y2="14"/>
+              </svg>
+            </div>
+            <h3>Intelligence & Analytics</h3>
+          </div>
           <p>Turn raw execution into decisions. Stability trends, performance regressions, OEM risk matrices, and custom reporting.</p>
-          <div class="layer-tags">
-            <span class="layer-tag">Analytics</span>
-            <span class="layer-tag">Exports</span>
-            <span class="layer-tag">Alerts</span>
+          <div class="platform-tags">
+            <span class="platform-tag">Dashboards</span>
+            <span class="platform-tag">Exports</span>
+            <span class="platform-tag">Alerts</span>
           </div>
         </div>
-        <div class="layer-card">
-          <div class="layer-number">LAYER 06</div>
-          <h3>Launch & Distribution</h3>
-          <p>Intelligence-led UA decisions and Launchpad paid trials. Replace ad-based installs with direct, incentivized, verified distribution.</p>
-          <div class="layer-tags">
-            <span class="layer-tag">Launchpad</span>
-            <span class="layer-tag">Verified Installs</span>
-            <span class="layer-tag">No Ad Fraud</span>
+        <div class="platform-card">
+          <div class="platform-card-header">
+            <div class="platform-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+            </div>
+            <h3>Launch & Distribution</h3>
+          </div>
+          <p>Intelligence-led UA decisions and Launchpad paid trials. Direct, incentivized, verified distribution—no ad fraud.</p>
+          <div class="platform-tags">
+            <span class="platform-tag">Launchpad</span>
+            <span class="platform-tag">Verified Installs</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Differentiators -->
+  <!-- Difference -->
   <section class="section diff" id="diff">
     <div class="container">
       <div class="section-header">
-        <div class="section-label">What Makes Us Different</div>
+        <div class="section-label">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+          Why We're Different
+        </div>
         <h2 class="section-title">Not just another testing tool</h2>
         <p class="section-desc">
-          We're building an operating system for mobile quality, launch, and distribution
+          An operating system for mobile quality, launch, and distribution
         </p>
       </div>
       <div class="diff-grid">
         <div class="diff-card">
-          <div class="diff-icon">🏢</div>
+          <div class="diff-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+              <line x1="8" y1="21" x2="16" y2="21"/>
+              <line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+          </div>
           <h3>Not a Device Farm</h3>
           <p>We orchestrate execution across distributed supply—we don't just own hardware</p>
         </div>
         <div class="diff-card">
-          <div class="diff-icon">📢</div>
+          <div class="diff-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+              <line x1="3" y1="9" x2="21" y2="9"/>
+              <line x1="9" y1="21" x2="9" y2="9"/>
+            </svg>
+          </div>
           <h3>Not an Ad Network</h3>
           <p>Direct, verified, incentivized distribution with real users and real engagement</p>
         </div>
         <div class="diff-card">
-          <div class="diff-icon">🤖</div>
+          <div class="diff-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
           <h3>Not Just QA</h3>
           <p>Intelligence-driven launch decisions, not just pass/fail automation</p>
         </div>
         <div class="diff-card">
-          <div class="diff-icon">👥</div>
+          <div class="diff-card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
           <h3>Not Just Crowdtesting</h3>
           <p>Unified platform combining automation, human testing, and paid trials</p>
         </div>
@@ -1484,55 +1856,95 @@
     <div class="container">
       <div class="flywheel-content">
         <div class="flywheel-text">
-          <div class="section-label">The Flywheel</div>
+          <div class="section-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+              <line x1="12" y1="22.08" x2="12" y2="12"/>
+            </svg>
+            The Flywheel
+          </div>
           <h2>Why this <span class="gradient-text">compounds</span></h2>
           <p class="desc">
             Every execution feeds the system. Testing generates data. Data creates intelligence. 
             Intelligence improves launches. Launches create more real-world data.
           </p>
-          <div class="flywheel-benefits">
-            <div class="flywheel-benefit">
-              <div class="flywheel-benefit-icon">✓</div>
+          <div class="flywheel-list">
+            <div class="flywheel-item">
+              <div class="flywheel-item-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
               <span>Lower testing and infrastructure costs</span>
             </div>
-            <div class="flywheel-benefit">
-              <div class="flywheel-benefit-icon">✓</div>
+            <div class="flywheel-item">
+              <div class="flywheel-item-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
               <span>Higher confidence in every release</span>
             </div>
-            <div class="flywheel-benefit">
-              <div class="flywheel-benefit-icon">✓</div>
+            <div class="flywheel-item">
+              <div class="flywheel-item-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
               <span>Better distribution outcomes</span>
             </div>
-            <div class="flywheel-benefit">
-              <div class="flywheel-benefit-icon">✓</div>
+            <div class="flywheel-item">
+              <div class="flywheel-item-check">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
               <span>A durable competitive moat</span>
             </div>
           </div>
         </div>
         <div class="flywheel-visual">
-          <div class="flywheel-ring"></div>
-          <div class="flywheel-ring"></div>
-          <div class="flywheel-ring"></div>
-          <div class="flywheel-center">∞</div>
-          <div class="flywheel-item">Testing</div>
-          <div class="flywheel-item">Data</div>
-          <div class="flywheel-item">Intelligence</div>
-          <div class="flywheel-item">Launches</div>
+          <div class="flywheel-ring flywheel-ring-1"></div>
+          <div class="flywheel-ring flywheel-ring-2"></div>
+          <div class="flywheel-ring flywheel-ring-3"></div>
+          <div class="flywheel-center">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="23 4 23 10 17 10"/>
+              <polyline points="1 20 1 14 7 14"/>
+              <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/>
+            </svg>
+          </div>
+          <div class="flywheel-label flywheel-label-1">Testing</div>
+          <div class="flywheel-label flywheel-label-2">Data</div>
+          <div class="flywheel-label flywheel-label-3">Intelligence</div>
+          <div class="flywheel-label flywheel-label-4">Launches</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="section cta" id="contact">
+  <!-- CTA -->
+  <section class="section cta" id="cta">
     <div class="container">
       <div class="cta-box">
         <div class="cta-content">
           <h2>Ready to launch with <span class="gradient-text">confidence</span>?</h2>
           <p>Join the private beta and get early access to the real-world signal layer for mobile.</p>
           <div class="cta-buttons">
-            <a href="mailto:hello@sorka.ai" class="btn btn-primary">Request Access</a>
-            <a href="https://sorka-ai.github.io/wikis/" class="btn btn-secondary" target="_blank">Explore Documentation</a>
+            <a href="mailto:hello@sorka.ai" class="btn btn-primary">
+              Request Early Access
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+            <a href="https://sorka-ai.github.io/wikis/" class="btn btn-secondary" target="_blank">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+              Read Documentation
+            </a>
           </div>
         </div>
       </div>
@@ -1545,7 +1957,17 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#" class="logo">
-            <div class="logo-mark">S</div>
+            <svg class="logo-icon" viewBox="0 0 32 32" fill="none">
+              <rect width="32" height="32" rx="8" fill="#0D0D0F"/>
+              <defs>
+                <linearGradient id="footer-logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stop-color="#00D4AA"/>
+                  <stop offset="100%" stop-color="#0099FF"/>
+                </linearGradient>
+              </defs>
+              <path d="M10 20.5C10 17 12.5 15 16 15C19.5 15 22 17 22 20.5" stroke="url(#footer-logo-grad)" stroke-width="2.5" stroke-linecap="round"/>
+              <circle cx="16" cy="11" r="3" fill="url(#footer-logo-grad)"/>
+            </svg>
             Sorka
           </a>
           <p>The real-world signal layer for mobile. Know your build is safe to scale—before you pay to scale it.</p>
@@ -1554,7 +1976,7 @@
           <h4>Platform</h4>
           <div class="footer-links">
             <a href="#solution" class="footer-link">Solution</a>
-            <a href="#how-it-works" class="footer-link">How It Works</a>
+            <a href="#how" class="footer-link">How It Works</a>
             <a href="#platform" class="footer-link">Architecture</a>
             <a href="https://sorka-ai.github.io/wikis/" class="footer-link" target="_blank">Documentation</a>
           </div>
@@ -1571,8 +1993,8 @@
         <div class="footer-column">
           <h4>Legal</h4>
           <div class="footer-links">
-            <a href="#" class="footer-link">Privacy Policy</a>
-            <a href="#" class="footer-link">Terms of Service</a>
+            <a href="#" class="footer-link">Privacy</a>
+            <a href="#" class="footer-link">Terms</a>
             <a href="#" class="footer-link">Security</a>
           </div>
         </div>
@@ -1580,18 +2002,18 @@
       <div class="footer-bottom">
         <div class="footer-copy">© 2026 Sorka. All rights reserved.</div>
         <div class="footer-socials">
-          <a href="#" class="footer-social" aria-label="Twitter">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <a href="#" class="footer-social" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
             </svg>
           </a>
           <a href="https://github.com/sorka-ai" class="footer-social" aria-label="GitHub" target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
             </svg>
           </a>
           <a href="https://linkedin.com/company/sorka-ai" class="footer-social" aria-label="LinkedIn" target="_blank">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <svg viewBox="0 0 24 24" fill="currentColor">
               <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
             </svg>
           </a>
@@ -1603,18 +2025,12 @@
   <script>
     // Navigation scroll effect
     const nav = document.getElementById('nav');
-    let lastScroll = 0;
-
     window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      
-      if (currentScroll > 50) {
+      if (window.pageYOffset > 50) {
         nav.classList.add('scrolled');
       } else {
         nav.classList.remove('scrolled');
       }
-      
-      lastScroll = currentScroll;
     });
 
     // Smooth scroll for anchor links
@@ -1631,7 +2047,7 @@
       });
     });
 
-    // Intersection Observer for animations
+    // Intersection Observer for scroll animations
     const observerOptions = {
       threshold: 0.1,
       rootMargin: '0px 0px -50px 0px'
@@ -1646,11 +2062,12 @@
       });
     }, observerOptions);
 
-    // Observe elements for scroll animations
-    document.querySelectorAll('.problem-card, .step, .layer-card, .diff-card, .solution-point').forEach(el => {
+    // Observe elements
+    const animateElements = document.querySelectorAll('.problem-card, .how-step, .platform-card, .diff-card, .solution-feature');
+    animateElements.forEach((el, i) => {
       el.style.opacity = '0';
-      el.style.transform = 'translateY(30px)';
-      el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = `opacity 0.6s ease ${i * 0.1}s, transform 0.6s ease ${i * 0.1}s`;
       observer.observe(el);
     });
   </script>
